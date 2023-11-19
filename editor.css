@@ -1,0 +1,57 @@
+:root {
+    --class-color: #88aaff;
+    --comment-color: #88ffaa;
+    --link-color: #ffaa88;
+}
+
+.editor {
+    flex: 1;
+
+    background-color: var(--main-color);
+    padding: 1rem;
+    color: var(--font-dark-color);
+    max-height: 98vh;
+
+    overflow: scroll;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+class-element, comment-element, link-element {
+    border: 0.1rem solid var(--dark-color);
+    border-radius: 1rem;
+
+    padding: 1rem;
+
+    display: block;
+}
+
+class-element {
+    background-color: var(--class-color);
+}
+
+comment-element {
+    background-color: var(--comment-color);
+}
+
+link-element {
+    background-color: var(--link-color);
+}
+
+label {
+    display: inline-block;
+    min-width: 7rem;
+}
+
+select, input[type="text"], input[type="number"] {
+    width: calc(100% - 7rem);
+}
+
+class-element > textarea {
+    width: calc(100% - 7rem);
+    height: 4rem;
+    resize: none;
+}

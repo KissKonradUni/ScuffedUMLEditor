@@ -1,0 +1,242 @@
+{
+    "objects": [
+        {
+            "name": "Class1",
+            "type": "class",
+            "properties": [
+                {
+                    "text": "- attribute1: int"
+                },
+                {
+                    "text": "+ attribute2: String"
+                }
+            ],
+            "functions": [
+                {
+                    "text": "+ function1(val: byte): float"
+                },
+                {
+                    "text": "+ function2(): void"
+                }
+            ],
+            "pos": {
+                "x": 100,
+                "y": 100
+            }
+        },
+        {
+            "name": "Class2",
+            "type": "class",
+            "properties": [
+                {
+                    "text": "# attribute1"
+                },
+                {
+                    "text": "~ attribute2"
+                }
+            ],
+            "functions": [
+                {
+                    "text": "+ function1"
+                },
+                {
+                    "text": "+ function2"
+                }
+            ],
+            "pos": {
+                "x": 500,
+                "y": 100
+            }
+        },
+        {
+            "name": "ClassA",
+            "type": "class",
+            "properties": [],
+            "functions": [],
+            "pos": {
+                "x": 100,
+                "y": 500
+            }
+        },
+        {
+            "name": "ClassB",
+            "type": "class",
+            "properties": [
+                {
+                    "text": "+ property_make_this_longer: int"
+                }
+            ],
+            "functions": [],
+            "pos": {
+                "x": 350,
+                "y": 500
+            }
+        },
+        {
+            "name": "ClassC",
+            "type": "class",
+            "properties": [],
+            "functions": [],
+            "pos": {
+                "x": 1200,
+                "y": 500
+            }
+        },
+        {
+            "name": "ClassD",
+            "type": "class",
+            "properties": [],
+            "functions": [],
+            "pos": {
+                "x": 100,
+                "y": 800
+            }
+        },
+        {
+            "name": "ClassE",
+            "type": "class",
+            "properties": [],
+            "functions": [],
+            "pos": {
+                "x": 350,
+                "y": 800
+            }
+        },
+        {
+            "name": "ClassF",
+            "type": "class",
+            "properties": [],
+            "functions": [],
+            "pos": {
+                "x": 900,
+                "y": 800
+            }
+        },
+        {
+            "name": "Comment1",
+            "type": "comment",
+            "text": "  This is a comment\nA multiline comment at that!\nLook at this, im so cool!",
+            "pos": {
+                "x": 100,
+                "y": 300
+            }
+        }
+    ],
+    "links": [
+        {
+            "type": "association",
+
+            "from": "ClassA",
+            "from_count": "1",
+            "from_spec": "+property_a",
+
+            "to": "ClassD",
+            "to_count": "0..*",
+            "to_spec": "+property_b",
+
+            "comment": "Association",
+
+            "direction": "from"
+        },
+        {
+            "type": "association",
+
+            "from": "ClassB",
+            "from_count": "1",
+            "from_spec": "+property_a",
+
+            "to": "ClassC",
+            "to_count": "0..*",
+            "to_spec": "+property_b",
+
+            "comment": "Association",
+
+            "direction": "from"
+        },
+        {
+            "type": "association",
+
+            "from": "ClassF",
+            "from_count": "1",
+            "from_spec": "+property_a",
+
+            "to": "ClassB",
+            "to_count": "0..*",
+            "to_spec": "+property_b",
+
+            "comment": "Association",
+
+            "direction": "from"
+        },
+        {
+            "type": "generalization",
+
+            "from": "ClassB",
+            "to": "ClassE",
+
+            "direction": "from"
+        },
+        {
+            "type": "generalization",
+
+            "from": "ClassA",
+            "to": "ClassE",
+
+            "direction": "to"
+        },
+        {
+            "type": "composition",
+
+            "from": "ClassC",
+            "to": "ClassF",
+
+            "direction": "from"
+        },
+        {
+            "type": "aggregation",
+
+            "from": "ClassE",
+            "to": "ClassF",
+
+            "direction": "from"
+        },
+        {
+            "type": "association",
+
+            "from": "Class1",
+            "to": "Comment1",
+
+            "direction": "omni"
+        },
+        {
+            "type": "other_pos",
+
+            "from": {
+                "x": 300,
+                "y": 100
+            },
+            "to": {
+                "x": 500,
+                "y": 50
+            },
+
+            "comment": "Other",
+
+            "linetype": "dashed",
+            "direction": "to",
+            "arrow": "full",
+            "arrow_color": "#000000"
+        },
+        {
+            "type": "other",
+
+            "from": "Class2",
+            "to": "ClassC",
+
+            "linetype": "dotted",
+            "direction": "from",
+            "arrow": "full",
+            "arrow_color": "#ffffff"
+        }
+    ]
+}

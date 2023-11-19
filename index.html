@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="editor.css">
+    <script src="script.js" defer></script>
+    <script src="editor.js" defer></script>
+</head>
+<body>
+    <header style="margin-bottom: 1rem;">
+        <h1>Scuffed UML editor 💀</h1>
+        <div class="props">
+            <label for="canvas-width">Width</label>
+            <input type="number" id="canvas-width" name="canvas-width" value="1920">
+            <label for="canvas-height">Height</label>
+            <input type="number" id="canvas-height" name="canvas-height" value="1080">
+        </div>
+        <div style="width: 1rem;"></div>
+        <div class="props">
+            <label for="color">Color</label>
+            <input type="color" id="color" name="color" value="#ffbb88">
+        </div>
+    </header>
+    <div class="content">
+        <main>
+            <canvas id="canvas" width="1920" height="1080">
+            </canvas>
+        </main>
+        <div class="editor" id="editor">
+            <button id="clear">Clear</button>
+            <br><br>
+            <button id="update">Draw</button>
+            <br><br>
+            <button id="addClass">Add Class</button>
+            <button id="addComment">Add Comment</button>
+            <button id="addLink">Add Link</button>
+            <br><br>
+        </div>
+    </div>
+    <div id="json" name="json" rows="10" cols="80">
+{
+    "objects": [
+        {
+            "name": "Unnamed-4w4p2c3",
+            "type": "comment",
+            "pos": {
+                "x": 50,
+                "y": 50
+            },
+            "text": "Disclaimer: Ez egy \"gyorsan\" (4 óra) alatt összedobott UML szerkesztő,\naminek a kódja szörnyű, és a funkcionalitása is eléggé hiányos.\n\nNem rak neked szövegeket a linkekre, azokat javaslom painttel\nvagy valami hasonlóval beírni. \nHa üresen hagytál valamit féluton és lehalt, akkor rip. \n\nVisszanyitni projektet (még) nem lehet.\n\nMentés: jobb klikk a canvasra, majd \"Save as\"."
+        },
+        {
+            "name": "Unnamed-9gbrhk2",
+            "type": "comment",
+            "pos": {
+                "x": 1000,
+                "y": 50
+            },
+            "text": "A kezdéshez nyomd meg a clear gombot,\nmert a segítséget beleírtam a kezdő projektbe. "
+        },
+        {
+            "name": "Unnamed-498c73g",
+            "type": "comment",
+            "pos": {
+                "x": 50,
+                "y": 400
+            },
+            "text": "(Ez csakis az osztályábrákhoz van alapvetően,\nés abból sem tud minden jelzést. Javaslom hogy\nkiindulási pontnak használd.)"
+        }
+    ],
+    "links": [
+        {
+            "id": "wvcxqaq",
+            "type": "other",
+            "from": "Unnamed-4w4p2c3",
+            "to": "Unnamed-9gbrhk2",
+            "direction": "to",
+            "comment": ""
+        },
+        {
+            "id": "rlupu5p",
+            "type": "other",
+            "from": "Unnamed-4w4p2c3",
+            "to": "Unnamed-498c73g",
+            "direction": "from",
+            "comment": "",
+            "linetype": "dashed",
+            "arrow": "full",
+            "arrow_color": "#ffd58e"
+        }
+    ]
+}</div>
+<script>
+    var jsonEditor = {
+        getValue: function() {
+            return document.getElementById("json").innerHTML;
+        },
+
+        setValue: function(value) {
+            document.getElementById("json").innerHTML = value;
+        }
+    }
+    
+
+    var clearButton = document.getElementById("clear");
+    clearButton.addEventListener("click", function() {
+        if (confirm("Are you sure? / Biztos vagy benne?")) {
+            jsonEditor.setValue(JSON.stringify({
+                "objects": [],
+                "links": []
+            }, null, 4));
+            // remove all custom elements from editor
+            var editor = document.getElementById("editor");
+            document.querySelectorAll("class-element, comment-element, link-element").forEach(function(element) {
+                editor.removeChild(element);
+            });
+
+            draw();
+        }
+    });
+</script>
+</body>
+</html>

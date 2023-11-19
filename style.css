@@ -1,0 +1,80 @@
+:root {
+    --light-color: #74a4d4;
+    --main-color: #3f51b5;
+    --dark-color: #333;
+
+    --font-light-color: #fff;
+    --font-dark-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+
+    color: var(--font-dark-color);
+
+    margin: 1rem;
+
+    background-color: var(--light-color);
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+body > div {
+    flex: 1;
+}
+
+#json {
+    width: 100%;
+    height: 50rem;
+    resize: none;
+    overflow: auto;
+
+    background-color: var(--dark-color);
+    color: var(--font-light-color);
+
+    border: none;
+    outline: none;
+
+    white-space: pre;
+    font-family: monospace;
+}
+
+main {
+    flex: 3;
+    width: 100%;
+}
+
+main > canvas {
+    width: 100%;
+    background-color: #ffffff88;
+    border: 0.1rem solid var(--dark-color);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+.props {
+    display: block;
+
+    flex: 0.2;
+    background-color: var(--main-color);
+    color: var(--font-light-color);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.props > input {
+    width: 100%;
+}
